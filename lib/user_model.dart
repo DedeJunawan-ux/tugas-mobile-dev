@@ -1,9 +1,8 @@
-*class UserModel {
-  final String id;
-  final String name;
-  final String? email;
-  final int age;
-  final bool isActive; 
+class UserModel {
+final String id;  final String name;
+final String? email;
+final int age;
+final bool isActive; 
 
   UserModel({
     required this.id,
@@ -34,21 +33,17 @@
   }
 }
 
-// 5. Eksekusi dan Pengujian
 void main() {
-  // Simulasi JSON dari API. Ada data yang hilang (id, email, isActive tidak dikirim)
   Map<String, dynamic> jsonResponse = {
     'name': 'Budi Santoso',
     'age': 22,
   };
 
-  // Konversi JSON ke Objek (Aplikasi tidak akan crash berkat Null Safety)
   UserModel user = UserModel.fromJson(jsonResponse);
 
   print('Name: ${user.name}'); 
   print('ID: ${user.id}'); // Output: (string kosong)
   print('Status: ${user.isActive}'); // Output: false
 
-  // Konversi kembali Objek ke JSON
   print('To JSON: ${user.toJson()}');
 }
